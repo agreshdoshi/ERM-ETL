@@ -120,7 +120,12 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "Trasformation1",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"source1": {
+								"test": "*.csv"
+							}
+						}
 					},
 					"staging": {
 						"folderPath": "/"

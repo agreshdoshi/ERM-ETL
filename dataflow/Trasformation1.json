@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText2",
+						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					},
 					"name": "source1"
@@ -29,7 +29,7 @@
 					"name": "Select1"
 				}
 			],
-			"script": "\n\nsource(output(\n\t\t{MeterPoint Code} as string,\n\t\t{Serial Number} as string,\n\t\t{Plant Code} as string,\n\t\t{Date/Time} as string,\n\t\t{Data Type} as string,\n\t\t{Data Value} as string,\n\t\tUnits as string,\n\t\tStatus as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> source1\nSelect1 derive({Date/Time} = toDate({Date/Time}, 'MM/dd/yyyy')) ~> TestDate\nsource1 select(mapColumn(\n\t\t{MeterPoint Code},\n\t\t{Date/Time},\n\t\t{Data Type},\n\t\t{Data Value}\n\t)) ~> Select1\nTestDate sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdateFormat:'MM/dd/yyyy',\n\ttimestampFormat:'dd/MM/yyyy') ~> sink1"
+			"script": "\n\nsource(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string,\n\t\tColumn_8 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdateFormats: ['dd-MM-yyyy'],\n\ttimestampFormats: ['MM/dd/yyyy']) ~> source1\nSelect1 derive({Date/Time} = toDate({Date/Time}, 'MM/dd/yyyy')) ~> TestDate\nsource1 select(mapColumn(\n\t\t{MeterPoint Code},\n\t\t{Date/Time},\n\t\t{Data Type},\n\t\t{Data Value}\n\t)) ~> Select1\nTestDate sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdateFormat:'MM/dd/yyyy',\n\ttimestampFormat:'dd/MM/yyyy') ~> sink1"
 		}
 	}
 }
