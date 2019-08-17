@@ -42,7 +42,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "Prop_0",
+									"name": "MeterPoint Code",
 									"type": "String"
 								}
 							},
@@ -52,8 +52,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "Prop_1",
-									"type": "String"
+									"name": "Serial Number"
 								}
 							},
 							{
@@ -62,8 +61,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "Prop_2",
-									"type": "String"
+									"name": "Plant Code"
 								}
 							},
 							{
@@ -144,12 +142,7 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "Trasformation1",
-						"type": "DataFlowReference",
-						"datasetParameters": {
-							"source1": {
-								"test": "*.csv"
-							}
-						}
+						"type": "DataFlowReference"
 					},
 					"staging": {
 						"folderPath": "/"
