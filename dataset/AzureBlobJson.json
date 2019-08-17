@@ -1,0 +1,58 @@
+{
+	"name": "AzureBlobJson",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlob",
+		"structure": [
+			{
+				"name": "MeterPoint Code",
+				"type": "String",
+				"description": "MeterCode"
+			},
+			{
+				"name": "Serial Number",
+				"type": "String"
+			},
+			{
+				"name": "Plant Code",
+				"type": "String"
+			},
+			{
+				"name": "Date/Time",
+				"type": "String"
+			},
+			{
+				"name": "Data Type",
+				"type": "String"
+			},
+			{
+				"name": "Data Value",
+				"type": "String"
+			},
+			{
+				"name": "Units",
+				"type": "String"
+			},
+			{
+				"name": "Status",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": "",
+				"rowDelimiter": "",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": true
+			},
+			"fileName": "",
+			"folderPath": "ermblob"
+		}
+	}
+}
