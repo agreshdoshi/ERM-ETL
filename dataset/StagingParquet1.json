@@ -10,9 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "file.parquet",
-				"folderPath": "dataflow",
-				"container": "staging"
+				"container": "containerdestination"
 			},
 			"compressionCodec": "none"
 		},
