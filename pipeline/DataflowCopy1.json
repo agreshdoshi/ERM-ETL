@@ -57,8 +57,7 @@
 							},
 							{
 								"source": {
-									"name": "Plant Code",
-									"type": "String"
+									"name": "Data Type"
 								},
 								"sink": {
 									"name": "Plant Code"
@@ -70,7 +69,8 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "Date"
+									"name": "Date",
+									"type": "DateTime"
 								}
 							},
 							{
