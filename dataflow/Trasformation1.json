@@ -29,7 +29,7 @@
 					"name": "Aggregate1"
 				}
 			],
-			"script": "\n\nsource(output(\n\t\t{MeterPoint Code} as string,\n\t\t{Serial Number} as string,\n\t\t{Plant Code} as string,\n\t\t{Date/Time} as date,\n\t\t{Data Type} as double,\n\t\t{Data Value} as string,\n\t\tUnits as string,\n\t\tStatus as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdateFormats: ['dd-MM-yyyy'],\n\ttimestampFormats: ['MM/dd/yyyy']) ~> source1\nsource1 select(mapColumn(\n\t\t{MeterPoint Code},\n\t\t{Date/Time},\n\t\t{Data Type},\n\t\t{Data Value}\n\t)) ~> Select1\nSelect1 aggregate(groupBy({Date/Time}),\n\t{Data Value} = avg({Data Value})) ~> Aggregate1\nAggregate1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdateFormat:'MM/dd/yyyy',\n\ttimestampFormat:'dd/MM/yyyy') ~> sink1"
+			"script": "\n\nsource(output(\n\t\t{MeterPoint Code} as string,\n\t\t{Serial Number} as string,\n\t\t{Plant Code} as string,\n\t\t{Date/Time} as date 'dd/MM/yyyy',\n\t\t{Data Type} as double '###,###,###,###.##',\n\t\t{Data Value} as string,\n\t\tUnits as string,\n\t\tStatus as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdateFormats: ['dd-MM-yyyy'],\n\ttimestampFormats: ['MM/dd/yyyy']) ~> source1\nsource1 select(mapColumn(\n\t\t{MeterPoint Code},\n\t\t{Date/Time},\n\t\t{Data Type},\n\t\t{Data Value}\n\t)) ~> Select1\nSelect1 aggregate(groupBy({Date/Time}),\n\t{Data Value} = avg({Data Value})) ~> Aggregate1\nAggregate1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tdateFormat:'MM/dd/yyyy',\n\ttimestampFormat:'dd/MM/yyyy') ~> sink1"
 		}
 	}
 }
