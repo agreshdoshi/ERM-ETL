@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy Data1",
-				"type": "Copy",
+				"name": "ExecuteDataFlow1",
+				"type": "ExecuteDataFlow",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
@@ -15,27 +15,19 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"source": {
-						"type": "BlobSource",
-						"recursive": true
+					"dataflow": {
+						"referenceName": "Trasformation1",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"source1": {
+								"test": "*.csv"
+							}
+						}
 					},
-					"sink": {
-						"type": "BlobSink"
-					},
-					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "AzureBlobStorageSourceDatasetEntity1",
-						"type": "DatasetReference"
+					"staging": {
+						"folderPath": "/"
 					}
-				],
-				"outputs": [
-					{
-						"referenceName": "AzureBlobJson",
-						"type": "DatasetReference"
-					}
-				]
+				}
 			}
 		],
 		"annotations": []
