@@ -70,18 +70,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "Prop_3",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Data Type",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Prop_4",
-									"type": "String"
+									"name": "Date"
 								}
 							},
 							{
@@ -90,18 +79,7 @@
 									"type": "String"
 								},
 								"sink": {
-									"name": "Prop_5",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Units",
-									"type": "String"
-								},
-								"sink": {
-									"name": "Prop_6",
-									"type": "String"
+									"name": "Data Value"
 								}
 							}
 						]
