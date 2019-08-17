@@ -16,13 +16,8 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "Trasformation1",
-						"type": "DataFlowReference",
-						"datasetParameters": {
-							"source1": {
-								"test": "*.csv"
-							}
-						}
+						"referenceName": "dataflow3",
+						"type": "DataFlowReference"
 					},
 					"staging": {
 						"folderPath": "/"
