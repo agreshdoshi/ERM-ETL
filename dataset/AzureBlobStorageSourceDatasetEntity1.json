@@ -1,0 +1,11 @@
+{
+	"name": "AzureBlobStorageSourceDatasetEntity1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azuresourcelinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureBlob"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	"name": "StagingParquet1",
+	"properties": {
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "file.parquet",
+				"folderPath": "dataflow",
+				"container": "staging"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}

@@ -1,0 +1,70 @@
+{
+	"name": "DataflowCopy1",
+	"properties": {
+		"description": "Run dataflow with Explicit copy to ingest copy source",
+		"activities": [
+			{
+				"name": "LoadData",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": true
+					},
+					"sink": {
+						"type": "ParquetSink"
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "AzureBlobStorageSourceDatasetEntity1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "StagingParquet1",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Trasformation",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "LoadData",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "Trasformation1",
+						"type": "DataFlowReference"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
