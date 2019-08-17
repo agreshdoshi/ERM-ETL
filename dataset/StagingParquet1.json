@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": "LP - Copy.csv",
 				"container": "containerdestination"
 			},
 			"compressionCodec": "none"
