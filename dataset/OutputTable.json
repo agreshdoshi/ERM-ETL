@@ -7,10 +7,48 @@
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DateTime",
+				"type": "date"
+			},
+			{
+				"name": "Meterpoint Code",
+				"type": "varchar"
+			},
+			{
+				"name": "Data Type",
+				"type": "varchar"
+			},
+			{
+				"name": "Average Value",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Minimum Value",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Maximum Value",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Median Value",
+				"type": "float",
+				"precision": 15
+			}
+		],
 		"typeProperties": {
-			"schema": "OutputSchema",
-			"table": "ERMOutputTable"
+			"schema": "dbo",
+			"table": "TransormedDataOutputTable"
 		}
 	}
 }
