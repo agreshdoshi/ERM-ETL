@@ -1,0 +1,21 @@
+{
+	"name": "DelimittedTestSchemaDrift",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "TestSink",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "testsinkschemadrift"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
