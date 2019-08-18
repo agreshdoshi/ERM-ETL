@@ -1,0 +1,16 @@
+{
+	"name": "OutputTable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OutputLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "OutputSchema",
+			"table": "ERMOutputTable"
+		}
+	}
+}
