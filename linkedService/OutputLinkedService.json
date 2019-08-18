@@ -1,0 +1,12 @@
+{
+	"name": "OutputLinkedService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"connectionString": "integrated security=False;encrypt=True;connection timeout=30;data source=ermetloutputserver.database.windows.net;initial catalog=ERMETLOutputDb;user id=agresh",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkVSTURBVEFGQUNUT1JZX2E0MjAxNWE2LTYzNjUtNDJjZi05NDllLTY5ZTRkYzJhNmI0ZiINCn0="
+		}
+	}
+}
