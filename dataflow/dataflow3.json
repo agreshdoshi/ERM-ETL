@@ -5,12 +5,27 @@
 		"typeProperties": {
 			"sources": [
 				{
+					"dataset": {
+						"referenceName": "DelimitedText2",
+						"type": "DatasetReference"
+					},
 					"name": "source1"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
-			"script": "\n\nsource(output(\n\t\t\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> source1"
+			"sinks": [
+				{
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Aggregate1"
+				},
+				{
+					"name": "DerivedColumn1"
+				}
+			],
+			"script": "\n\nsource(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinferDriftedColumnTypes: true,\n\tdateFormats: ['dd/MM/yyyy']) ~> source1\nDerivedColumn1 aggregate(groupBy(MeterCode = byName('MeterCode')),\n\teach(match(name == 'Energy'), $$ = avg(toDouble(byName('Energy'))) )) ~> Aggregate1\nsource1 derive(each(match(name == 'Energy'), $$+'val' = toDouble($$))) ~> DerivedColumn1\nAggregate1 sink(mapColumn(\n\t\tTest\n\t)) ~> sink1"
 		}
 	}
 }
