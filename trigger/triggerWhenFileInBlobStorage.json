@@ -9,6 +9,12 @@
 					"referenceName": "pipeline1",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline1f6642ebb-637d-43b2-98c2-d0256edb3ce8",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "BlobEventsTrigger",
