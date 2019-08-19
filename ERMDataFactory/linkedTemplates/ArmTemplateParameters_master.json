@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ERMDataFactory"
+		},
+		"AzureBlobSinkTransform_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"OutputLinkedService_connectionString": {
+			"value": ""
+		},
+		"TestSink_connectionString": {
+			"value": ""
+		},
+		"azuredestinationlinkedservice_connectionString": {
+			"value": ""
+		},
+		"azuresourcelinkedservice_connectionString": {
+			"value": ""
+		},
+		"AzureBlobJson_properties_typeProperties_fileName": {
+			"value": ""
+		},
+		"AzureBlobJson_properties_typeProperties_folderPath": {
+			"value": "ermblob"
+		},
+		"AzureBlobStorageSourceDatasetEntity1_properties_typeProperties_fileName": {
+			"value": ""
+		},
+		"AzureBlobStorageSourceDatasetEntity1_properties_typeProperties_folderPath": {
+			"value": "ermblob"
+		},
+		"triggerWhenFileInBlobStorage_properties_typeProperties_scope": {
+			"value": "/subscriptions/7929cc89-eab0-4bb8-bec5-a5c6f38494fb/resourceGroups/ERM-ETL/providers/Microsoft.Storage/storageAccounts/ermsourceblob"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
