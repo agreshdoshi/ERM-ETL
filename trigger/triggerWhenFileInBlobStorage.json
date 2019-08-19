@@ -1,0 +1,24 @@
+{
+	"name": "triggerWhenFileInBlobStorage",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "pipeline1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/ermblob/blobs/",
+			"blobPathEndsWith": ".csv",
+			"scope": "/subscriptions/7929cc89-eab0-4bb8-bec5-a5c6f38494fb/resourceGroups/ERM-ETL/providers/Microsoft.Storage/storageAccounts/ermsourceblob",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
