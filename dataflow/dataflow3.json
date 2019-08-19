@@ -27,9 +27,12 @@
 				},
 				{
 					"name": "DerivedColumn1"
+				},
+				{
+					"name": "Select1"
 				}
 			],
-			"script": "\nparameters{\n\tcolName as string\n}\nsource(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinferDriftedColumnTypes: true,\n\tdateFormats: ['dd/MM/yyyy']) ~> source1\nDerivedColumn1 aggregate(groupBy({Serial%} = Serial,\n\t\tMeter,\n\t\tDataType),\n\teach(match(name == 'Energy'), concat('', 'Data Value') = round(avg($$))\r\n)) ~> Aggregate1\nsource1 derive(each(match(name=='Energy'), $$+'val' = toDouble($$)),\n\t\tSerial = byName('Serial'),\n\t\tMeter = byPosition(1)\r\n,\n\t\tDataType = case(startsWith(toString(byPosition(7)), 'Data'), toString(byName('Data Type')),toString(byName('DataType')))\r\n\r\n,\n\t\teach(match(name == 'MeterCode'), $$ + 'Test' = toString($$)),\n\t\teach(match(name == 'DataType'), $$ + 'val' = toString($$))) ~> DerivedColumn1\nAggregate1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tmapColumn(\n\t\tSerial = {Serial%},\n\t\teach(match(name == 'Data Value'))\n\t)) ~> sink1"
+			"script": "\nparameters{\n\tcolName as string\n}\nsource(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinferDriftedColumnTypes: true,\n\tdateFormats: ['dd/MM/yyyy']) ~> source1\nSelect1 aggregate(groupBy({Serial%} = Serial,\n\t\tMeter,\n\t\tDataType),\n\teach(match(name=='Energy'), concat('', 'Data Value') = round(avg($$)))) ~> Aggregate1\nsource1 derive(each(match(name=='Energy'), $$+'val' = toDouble($$)),\n\t\tSerial = byName('Serial'),\n\t\tMeter = byPosition(1),\n\t\tDataType = case(startsWith(toString(byPosition(7)), 'D'), toString(byName('Data Type')),toString(byName('DataType'))),\n\t\teach(match(name=='MeterCode'), $$ + 'Test' = toString($$)),\n\t\teach(match(name=='DataType'), $$ + 'val' = toString($$))) ~> DerivedColumn1\nDerivedColumn1 select(mapColumn(\n\t\tSerial,\n\t\tMeter,\n\t\tDataType\n\t)) ~> Select1\nAggregate1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tmapColumn(\n\t\tSerial = {Serial%},\n\t\teach(match(name=='Data Value'))\n\t)) ~> sink1"
 		}
 	}
 }
