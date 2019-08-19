@@ -1,0 +1,61 @@
+{
+	"name": "DelimitedText11",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"test": {
+				"type": "String",
+				"defaultValue": "*.csv"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "ermblob"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "MeterPoint Code",
+				"type": "String"
+			},
+			{
+				"name": "Serial Number",
+				"type": "String"
+			},
+			{
+				"name": "Plant Code",
+				"type": "String"
+			},
+			{
+				"name": "Date/Time",
+				"type": "String"
+			},
+			{
+				"name": "Data Type",
+				"type": "String"
+			},
+			{
+				"name": "Data Value",
+				"type": "String"
+			},
+			{
+				"name": "Units",
+				"type": "String"
+			},
+			{
+				"name": "Status",
+				"type": "String"
+			}
+		]
+	}
+}

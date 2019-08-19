@@ -1,0 +1,54 @@
+{
+	"name": "OutputTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OutputLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "DateTime",
+				"type": "date"
+			},
+			{
+				"name": "Meterpoint Code",
+				"type": "varchar"
+			},
+			{
+				"name": "Data Type",
+				"type": "varchar"
+			},
+			{
+				"name": "Average Value",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Minimum Value",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Maximum Value",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Median Value",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TransormedDataOutputTable"
+		}
+	}
+}
