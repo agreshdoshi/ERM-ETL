@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/WebApplication1/obj
+/WebApplication1/.vs/WebApplication1/v15
+/WebApplication1/bin/Debug/netcoreapp2.2
